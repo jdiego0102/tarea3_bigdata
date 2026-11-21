@@ -1,0 +1,310 @@
+26/11/21 22:38:27 WARN Utils: Your hostname, bigdata resolves to a loopback address: 127.0.1.1; using 192.168.64.6 instead (on interface enp0s1)
+26/11/21 22:38:27 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/11/21 22:38:30 INFO SparkContext: Running Spark version 3.5.8
+26/11/21 22:38:30 INFO SparkContext: OS info Linux, 7.0.0-31-generic, aarch64
+26/11/21 22:38:30 INFO SparkContext: Java version 11.0.33.1
+26/11/21 22:38:30 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/11/21 22:38:30 INFO ResourceUtils: ==============================================================
+26/11/21 22:38:30 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/11/21 22:38:30 INFO ResourceUtils: ==============================================================
+26/11/21 22:38:30 INFO SparkContext: Submitted application: Tarea3_Siniestralidad_Cali
+26/11/21 22:38:30 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/21 22:38:30 INFO ResourceProfile: Limiting resource is cpu
+26/11/21 22:38:30 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/11/21 22:38:30 INFO SecurityManager: Changing view acls to: jdiego_dev
+26/11/21 22:38:30 INFO SecurityManager: Changing modify acls to: jdiego_dev
+26/11/21 22:38:30 INFO SecurityManager: Changing view acls groups to: 
+26/11/21 22:38:30 INFO SecurityManager: Changing modify acls groups to: 
+26/11/21 22:38:30 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: jdiego_dev; groups with view permissions: EMPTY; users with modify permissions: jdiego_dev; groups with modify permissions: EMPTY
+26/11/21 22:38:30 INFO Utils: Successfully started service 'sparkDriver' on port 32843.
+26/11/21 22:38:30 INFO SparkEnv: Registering MapOutputTracker
+26/11/21 22:38:30 INFO SparkEnv: Registering BlockManagerMaster
+26/11/21 22:38:30 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/11/21 22:38:30 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/11/21 22:38:30 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/11/21 22:38:30 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-7f3edf3c-2c9c-42e5-b6de-a9c80b246e47
+26/11/21 22:38:30 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/11/21 22:38:30 INFO SparkEnv: Registering OutputCommitCoordinator
+26/11/21 22:38:31 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/11/21 22:38:31 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/11/21 22:38:31 INFO Executor: Starting executor ID driver on host 192.168.64.6
+26/11/21 22:38:31 INFO Executor: OS info Linux, 7.0.0-31-generic, aarch64
+26/11/21 22:38:31 INFO Executor: Java version 11.0.33.1
+26/11/21 22:38:31 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/11/21 22:38:31 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@3432eb28 for default.
+26/11/21 22:38:31 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 42183.
+26/11/21 22:38:31 INFO NettyBlockTransferService: Server created on 192.168.64.6:42183
+26/11/21 22:38:31 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/11/21 22:38:31 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 192.168.64.6, 42183, None)
+26/11/21 22:38:31 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.64.6:42183 with 434.4 MiB RAM, BlockManagerId(driver, 192.168.64.6, 42183, None)
+26/11/21 22:38:31 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 192.168.64.6, 42183, None)
+26/11/21 22:38:31 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 192.168.64.6, 42183, None)
+
+======================================================================
+1. CARGA DE DATOS
+======================================================================
+Registros cargados: 371,025
+root
+ |-- codigo: string (nullable = true)
+ |-- fecha: string (nullable = true)
+ |-- tipo_confirmado: string (nullable = true)
+ |-- direccion: string (nullable = true)
+ |-- clase_accidente: string (nullable = true)
+ |-- clase_accidente_2: string (nullable = true)
+ |-- tipo_confirmado_2: string (nullable = true)
+ |-- medio_reporte: string (nullable = true)
+ |-- num_vehiculos: string (nullable = true)
+ |-- tipos_vehiculos: string (nullable = true)
+
++------+---------+---------------+---------------------------+---------------+-----------------+-----------------+--------------+-------------+---------------+
+|codigo|fecha    |tipo_confirmado|direccion                  |clase_accidente|clase_accidente_2|tipo_confirmado_2|medio_reporte |num_vehiculos|tipos_vehiculos|
++------+---------+---------------+---------------------------+---------------+-----------------+-----------------+--------------+-------------+---------------+
+|96159 |1/01/2016|Solo daños     |Carrera 56 Con Calle 1 A   |.              |.                |Solo Da?os       |RADIO         |2            |MOTOCICLETA    |
+|96160 |1/01/2016|Negativo       |Calle 72 O Con Carrera 28 H|.              |.                |Negativo         |RADIO         |.            |.              |
+|96161 |1/01/2016|Con lesionado  |Carrera 94 Con Calle 4 C   |ATROPELLO      |ATROPELLO        |Por Atropello    |TELEF?NICO 127|2            |MOTOCICLETA    |
+|96162 |1/01/2016|Con lesionado  |Carrera 8 A Con Calle 44   |VOLCAMIENTO    |VOLCAMIENTO      |Por Volcamiento  |RADIO         |1            |MOTOCICLETA    |
+|96163 |1/01/2016|Negativo       |Carrera 28 H Con Calle 72 M|.              |.                |Negativo         |TELEF?NICO 127|.            |.              |
++------+---------+---------------+---------------------------+---------------+-----------------+-----------------+--------------+-------------+---------------+
+only showing top 5 rows
+
+
+======================================================================
+2. LIMPIEZA DE DATOS
+======================================================================
+Valores nulos por columna:
++------+-----+---------------+---------+---------------+-----------------+-----------------+-------------+-------------+---------------+
+|codigo|fecha|tipo_confirmado|direccion|clase_accidente|clase_accidente_2|tipo_confirmado_2|medio_reporte|num_vehiculos|tipos_vehiculos|
++------+-----+---------------+---------+---------------+-----------------+-----------------+-------------+-------------+---------------+
+|1     |23   |25             |183692   |325280         |325265           |23433            |288121       |194467       |222236         |
++------+-----+---------------+---------+---------------+-----------------+-----------------+-------------+-------------+---------------+
+
+Registros después de la limpieza: 370,996 (se eliminaron 29)
+
+======================================================================
+3. TRANSFORMACIÓN
+======================================================================
+root
+ |-- codigo: string (nullable = true)
+ |-- fecha: date (nullable = true)
+ |-- tipo_confirmado: string (nullable = true)
+ |-- direccion: string (nullable = true)
+ |-- clase_accidente: string (nullable = true)
+ |-- medio_reporte: string (nullable = true)
+ |-- num_vehiculos: integer (nullable = true)
+ |-- tipos_vehiculos: string (nullable = true)
+ |-- anio: integer (nullable = true)
+ |-- mes: integer (nullable = true)
+ |-- dia_semana: integer (nullable = true)
+ |-- es_accidente: boolean (nullable = true)
+ |-- gravedad: string (nullable = false)
+ |-- involucra_moto: boolean (nullable = true)
+
++------+----------+---------------+------------------------------+---------------+-------------+-------------+---------------+----+---+----------+------------+---------------------------+--------------+
+|codigo|fecha     |tipo_confirmado|direccion                     |clase_accidente|medio_reporte|num_vehiculos|tipos_vehiculos|anio|mes|dia_semana|es_accidente|gravedad                   |involucra_moto|
++------+----------+---------------+------------------------------+---------------+-------------+-------------+---------------+----+---+----------+------------+---------------------------+--------------+
+|100002|2016-01-30|NEGATIVO       |Calle 25 Con Carrera 29 B     |NULL           |NULL         |NULL         |NULL           |2016|1  |7         |false       |Negativo (no fue accidente)|NULL          |
+|100010|2016-01-30|CON LESIONADO  |HOSPITAL PRIMITIVO IGLESIAS   |VOLCAMIENTO    |NULL         |1            |NULL           |2016|1  |7         |true        |Con lesionado              |NULL          |
+|100018|2016-01-30|CON LESIONADO  |Carrera 5 Con Calle 44        |NULL           |NULL         |2            |NULL           |2016|1  |7         |true        |Con lesionado              |NULL          |
+|100028|2016-01-30|SOLO DAÑOS     |Transversal 29 Con Diagonal 24|NULL           |NULL         |2            |NULL           |2016|1  |7         |true        |Solo daños                 |NULL          |
+|100039|2016-01-30|NEGATIVO       |Carrera 40 Con Calle 18       |NULL           |NULL         |NULL         |NULL           |2016|1  |7         |false       |Negativo (no fue accidente)|NULL          |
++------+----------+---------------+------------------------------+---------------+-------------+-------------+---------------+----+---+----------+------------+---------------------------+--------------+
+only showing top 5 rows
+
+
+======================================================================
+4.1 Reportes por resultado de verificación
+======================================================================
++---------------------------+------+----------+
+|gravedad                   |count |porcentaje|
++---------------------------+------+----------+
+|Negativo (no fue accidente)|246107|66.34     |
+|Solo daños                 |74029 |19.95     |
+|Con lesionado              |47500 |12.8      |
+|Con fallecido              |3360  |0.91      |
++---------------------------+------+----------+
+
+
+======================================================================
+4.2 Reportes y accidentes confirmados por año
+======================================================================
++----+--------+----------+-------------+-------------+
+|anio|reportes|accidentes|con_lesionado|con_fallecido|
++----+--------+----------+-------------+-------------+
+|2016|64323   |16513     |8215         |362          |
+|2017|61429   |17016     |6985         |394          |
+|2018|60439   |23354     |6475         |451          |
+|2019|59180   |23508     |5974         |392          |
+|2020|32742   |13996     |4167         |392          |
+|2021|30749   |11650     |4175         |374          |
+|2022|31262   |9979      |4131         |384          |
+|2023|18794   |4916      |3963         |387          |
+|2024|12078   |3957      |3415         |224          |
++----+--------+----------+-------------+-------------+
+
+
+======================================================================
+4.3 Accidentes confirmados por mes
+======================================================================
++---+-----+
+|mes|count|
++---+-----+
+|  1|10269|
+|  2|10889|
+|  3|10625|
+|  4| 9194|
+|  5| 9735|
+|  6| 9591|
+|  7|10216|
+|  8|10645|
+|  9|10869|
+| 10|11262|
+| 11|10370|
+| 12|11224|
++---+-----+
+
+
+======================================================================
+4.4 Accidentes confirmados por día de la semana
+======================================================================
++----------+-----+
+|dia_semana|count|
++----------+-----+
+|         1|13772|
+|         2|17732|
+|         3|18889|
+|         4|18358|
+|         5|18483|
+|         6|19511|
+|         7|18144|
++----------+-----+
+
+
+======================================================================
+4.5 Clase de accidente (confirmados)
+======================================================================
++-----------------+-----+
+|clase_accidente  |count|
++-----------------+-----+
+|CHOQUE           |17296|
+|ATROPELLO        |6312 |
+|VOLCAMIENTO      |1692 |
+|CAIDA DE OCUPANTE|1366 |
+|OTRO             |132  |
+|INCENDIO         |1    |
++-----------------+-----+
+
+
+======================================================================
+4.6 Medio por el que se reportó
+======================================================================
+Registros con medio de reporte informado: 82,902 de 370,996
++--------------+-----+
+|medio_reporte |count|
++--------------+-----+
+|TELEFONICO 127|28063|
+|CAD 123       |21283|
+|RADIO         |20039|
+|CAT 127       |5836 |
+|AGENTE RADIO  |4973 |
+|AGENTE CAD 123|2181 |
+|REDES SOCIALES|457  |
+|AGENTE TRACR  |34   |
+|MOVILIDAD CALI|22   |
+|OTRO VALOR    |9    |
++--------------+-----+
+only showing top 10 rows
+
+
+======================================================================
+4.7 Estadísticas del número de vehículos por accidente
+======================================================================
++-------+-------------------+
+|summary|      num_vehiculos|
++-------+-------------------+
+|  count|             119484|
+|   mean|  1.957835358709116|
+| stddev|0.44459501422518377|
+|    min|                  1|
+|    50%|                  2|
+|    max|                  9|
++-------+-------------------+
+
+
+======================================================================
+4.8 Tipos de vehículo involucrados (DataFrame: split + explode)
+======================================================================
++--------------+------+
+|vehiculo      |count |
++--------------+------+
+|AUTOMOVIL     |106468|
+|MOTOCICLETA   |50625 |
+|CAMIONETA     |9438  |
+|CAMION        |5551  |
+|BUSETA        |3064  |
+|BUS PADRON    |2594  |
+|BUS           |2395  |
+|CAMPERO       |1851  |
+|VOLQUETA      |1349  |
+|BUS ARTICULADO|1236  |
++--------------+------+
+only showing top 10 rows
+
+
+======================================================================
+4.9 Mismo conteo con RDD (flatMap + map + reduceByKey)
+======================================================================
+AUTOMOVIL            106,468
+MOTOCICLETA          50,625
+CAMIONETA            9,438
+CAMION               5,551
+BUSETA               3,064
+
+======================================================================
+4.10 Participación de motocicletas según gravedad
+======================================================================
++-------------+----------+--------+------------+
+|gravedad     |accidentes|con_moto|pct_con_moto|
++-------------+----------+--------+------------+
+|Con fallecido|1503      |1150    |76.51       |
+|Con lesionado|40013     |29026   |72.54       |
+|Solo daños   |60192     |14319   |23.79       |
++-------------+----------+--------+------------+
+
+
+======================================================================
+4.11 Direcciones con más accidentes confirmados
+======================================================================
++------------------------+-----+
+|direccion               |count|
++------------------------+-----+
+|CLINICA COLOMBIA        |408  |
+|CLINICA CRISTO REY      |290  |
+|CALLE 25 CON CARRERA 98 |164  |
+|CALLE 10 CON CARRERA 39 |139  |
+|CALLE 70 CON CARRERA 8  |135  |
+|CALLE 16 CON CARRERA 100|121  |
+|CALLE 10 CON CARRERA 66 |119  |
+|CALLE 5 CON CARRERA 80  |111  |
+|CLINICA VALLE DEL LILI  |106  |
+|CALLE 13 CON CARRERA 100|104  |
++------------------------+-----+
+only showing top 10 rows
+
+
+======================================================================
+5. GENERACIÓN DE GRÁFICOS
+======================================================================
+Gráfico guardado: /home/jdiego_dev/tarea3/graficos/01_reportes_vs_accidentes_por_anio.png
+Gráfico guardado: /home/jdiego_dev/tarea3/graficos/02_distribucion_gravedad.png
+Gráfico guardado: /home/jdiego_dev/tarea3/graficos/03_fallecidos_por_anio.png
+Gráfico guardado: /home/jdiego_dev/tarea3/graficos/04_clase_accidente.png
+Gráfico guardado: /home/jdiego_dev/tarea3/graficos/05_tipos_vehiculo.png
+Gráfico guardado: /home/jdiego_dev/tarea3/graficos/06_dia_semana.png
+Gráfico guardado: /home/jdiego_dev/tarea3/graficos/07_accidentes_por_mes.png
+
+======================================================================
+RESUMEN
+======================================================================
+Reportes analizados:     370,996
+Accidentes confirmados:  124,889 (33.7 %)
+Gráficos en:             /home/jdiego_dev/tarea3/graficos
